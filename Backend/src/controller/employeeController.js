@@ -1,70 +1,52 @@
-/* eslint-disable no-underscore-dangle */
-const debug = require('debug')('server:employeeController');
-const Employee = require('../model/employeeModel');
+const db = require('../model');
 
-function employeeController() {
-  async function getAll(req, res) {
-    const employees = await Employee.find();
-    res.json(employees);
+const Employee = db.employees;
+
+const createOne = async (req, res) => {
+  try {
+    const info = {
+      nome: req.body.nome,
+      email: req.body.email,
+      CPF: req.body.CPF,
+      avatar: req.body.avatar,
+      bio: req.body.bio,
+      senha: req.body.senha
+    };
+
+    const employee = await Employee.create(info);
+    res.status(200).send(employee);
+  } catch (error) {
+    res.send(error);
   }
+};
 
-  async function createOne(req, res) {
-    const newEmployee = new Employee(req.body);
-    debug(newEmployee);
-    try {
-      await newEmployee.save();
-      res.json(newEmployee);
-    } catch (error) {
-      debug(error);
-      res.send(error);
-    }
-  }
+const getAll = async (req, res) => {
+  const employees = await Employee.findAll({});
+  res.status(200).send(employees);
+};
 
-  async function getById(req, res) {
-    try {
-      const employeeById = await Employee.findById(
-        req.params.employeeId
-      );
-      res.json(employeeById);
-    } catch (error) {
-      debug(error);
-      res.status(404);
-      res.send(error);
-    }
-  }
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const employee = await Employee.findOne({ where: { id } });
+  res.status(200).send(employee);
+};
 
-  async function updateById(req, res) {
-    try {
-      const updatedEmployee = await Employee.findByIdAndUpdate(
-        req.params.pokemonId,
-        req.body,
-        { new: true }
-      );
-      res.json(updatedEmployee);
-    } catch (error) {
-      debug(error);
-      res.send(error);
-    }
-  }
+const updateById = async (req, res) => {
+  const { id } = req.params;
+  const employee = await Employee.update(req.body, { where: { id } });
+  res.status(200).send(employee);
+};
 
-  async function deleteById(req, res) {
-    try {
-      await Employee.findByIdAndDelete(req.params.employeeId);
-      res.status(204);
-      res.json();
-    } catch (error) {
-      debug(error);
-      res.send(error);
-    }
-  }
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  await Employee.destroy({ where: { id } });
+  res.status(200).send(`Employee with id:${id} removed`);
+};
 
-  return {
-    getAll,
-    createOne,
-    getById,
-    updateById,
-    deleteById
-  };
-}
-
-module.exports = employeeController;
+module.exports = {
+  createOne,
+  getAll,
+  getById,
+  updateById,
+  deleteById
+};
