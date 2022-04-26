@@ -1,21 +1,11 @@
-const { Router } = require('express');
-const employeeController = require('../controller/employeeController')();
+const router = require('express').Router();
+const employeeController = require('../controller/employeeController');
 
-function employeeRouter() {
-  const routes = Router();
+router.post('/', employeeController.createOne);
+router.get('/', employeeController.getAll);
 
-  routes
-    .route('/')
-    .get(employeeController.getAll)
-    .post(employeeController.createOne);
+router.get('/:id', employeeController.getById);
+router.put('/:id', employeeController.updateById);
+router.delete('/:id', employeeController.deleteById);
 
-  routes
-    .route('/:employeeId')
-    .get(employeeController.getById)
-    .put(employeeController.updateById)
-    .delete(employeeController.deleteById);
-
-  return routes;
-}
-
-module.exports = employeeRouter();
+module.exports = router;
