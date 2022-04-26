@@ -1,36 +1,31 @@
 const express = require('express');
 const cors = require('cors');
-/* const chalk = require('chalk'); */
-const debug = require('debug')('server');
-const morgan = require('morgan');
-/* const passport = require('passport'); */
-/* const authRoutes = require('./routes/authRoutes'); */
 
 require('dotenv').config();
 
-require('./passport/passport.config');
-
-require('./ddbb/mongoose.config');
-
 const server = express();
-const port = process.env.PORT || 2021;
 
-server.use(cors());
+const corOptions = {
+  origin: 'https://localhost:8081'
+};
+
+const port = 2022;
+
+server.use(cors(corOptions));
 server.use(express.json());
-server.use(morgan('dev'));
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({ extended: true }));
 
 const employeeRouter = require('./routes/employeeRouter');
-/* const userRouter = require('./routes/user.routes'); */
 
-/* server.use('/', authRoutes); */
-server.use('/api/employees'/* , passport.authenticate('jwt', { session: false }) */, employeeRouter);
-/* server.use(
-  '/user', passport.authenticate('jwt', { session: false }),
-  userRouter
-); */
+server.use('/api/employees', employeeRouter);
 
-server.listen(
-  port,
-  () => debug(`Server is running in ${`localhost:${port}`}`)
-);
+try {
+  server.listen(
+    port,
+    () => {
+      console.log(`Server is running in localhost:${port}`);
+    }
+  );
+} catch (error) {
+  console.log(`Error occurred: ${error.message}`);
+}
