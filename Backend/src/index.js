@@ -9,7 +9,7 @@ const corOptions = {
   origin: 'https://localhost:8081'
 };
 
-const port = 2022;
+const port = process.env.PORT || 2021;
 
 server.use(cors(corOptions));
 server.use(express.json());
