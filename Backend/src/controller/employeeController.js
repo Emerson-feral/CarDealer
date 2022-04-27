@@ -1,52 +1,25 @@
-const db = require('../model');
+const service = require('../service/employeeService');
 
-const Employee = db.employees;
+const createOne = async (payload) => await service.createOne(payload);
 
-const createOne = async (req, res) => {
-  try {
-    const info = {
-      nome: req.body.nome,
-      email: req.body.email,
-      CPF: req.body.CPF,
-      avatar: req.body.avatar,
-      bio: req.body.bio,
-      senha: req.body.senha
-    };
+const getAll = async (filters) => await service.getAll(filters);
 
-    const employee = await Employee.create(info);
-    res.status(200).send(employee);
-  } catch (error) {
-    res.send(error);
-  }
+const getByCpf = async (cpf) => {
+  const result = await service.getByCpf(cpf);
+  return result;
 };
 
-const getAll = async (req, res) => {
-  const employees = await Employee.findAll({});
-  res.status(200).send(employees);
-};
+const update = async (cpf, payload) => { await service.update(cpf, payload); };
 
-const getById = async (req, res) => {
-  const { id } = req.params;
-  const employee = await Employee.findOne({ where: { id } });
-  res.status(200).send(employee);
-};
-
-const updateById = async (req, res) => {
-  const { id } = req.params;
-  const employee = await Employee.update(req.body, { where: { id } });
-  res.status(200).send(employee);
-};
-
-const deleteById = async (req, res) => {
-  const { id } = req.params;
-  await Employee.destroy({ where: { id } });
-  res.status(200).send(`Employee with id:${id} removed`);
+const deleteByCpf = async (cpf) => {
+  const isDeleted = await service.deleteByCpf(cpf);
+  return isDeleted;
 };
 
 module.exports = {
   createOne,
   getAll,
-  getById,
-  updateById,
-  deleteById
+  getByCpf,
+  update,
+  deleteByCpf
 };
