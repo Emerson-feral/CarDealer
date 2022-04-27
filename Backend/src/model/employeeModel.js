@@ -1,11 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const Employee = sequelize.define('employee', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false
-    },
     nome: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,8 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true
       }
     },
-    CPF: {
+    cpf: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
+      unique: true,
       allowNull: false
     },
     avatar: {
