@@ -16,8 +16,10 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 const employeeRouter = require('./routes/employeeRouter');
+const vehicleRouter = require('./routes/vehicleRouter');
 
 server.use('/api/employees', employeeRouter);
+server.use('/api/vehicles', vehicleRouter);
 
 try {
   server.listen(
