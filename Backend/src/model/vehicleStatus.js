@@ -1,0 +1,5 @@
+module.exports = {
+  DISPONIVEL: 'DISPONIVEL',
+  RESERVADO: 'RESERVADO',
+  VENDIDO: 'VENDIDO'
+};
