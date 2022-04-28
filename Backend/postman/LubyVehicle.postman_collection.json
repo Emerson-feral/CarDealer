@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "8d265040-bebb-455e-9662-f6e86e478af6",
+		"name": "LubyVehicle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:[PORT}/api/vehicles/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "[PORT}",
+					"path": [
+						"api",
+						"vehicles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add vehicle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:[PORT}/api/vehicles/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "[PORT}",
+					"path": [
+						"api",
+						"vehicles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete vehicle",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:[PORT}/api/vehicles/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "[PORT}",
+					"path": [
+						"api",
+						"vehicles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get vehicle by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:[PORT}/api/vehicles/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "[PORT}",
+					"path": [
+						"api",
+						"vehicles",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

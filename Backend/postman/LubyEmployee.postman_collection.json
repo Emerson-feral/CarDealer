@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "32f5d9a2-8ec0-434d-840f-6752e5f7ce72",
+		"name": "LubyEmployee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{PORT}/api/employees/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{PORT}/api/employees/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{PORT}/api/employees/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{PORT}/api/employees/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get employee by cpf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{PORT}/api/employees/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

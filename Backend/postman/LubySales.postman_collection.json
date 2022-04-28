@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "0fa84a54-2392-445c-a887-235d37b3e6d6",
+		"name": "LubySales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All sales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{PORT}/api/sales/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"sales",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add sale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{PORT}/api/sales/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{PORT}",
+					"path": [
+						"api",
+						"sales",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
