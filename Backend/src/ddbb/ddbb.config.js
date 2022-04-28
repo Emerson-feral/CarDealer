@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   HOST: 'localhost',
   USER: 'root',
-  PASSWORD: process.env.PASSWORD_DB,
+  PASSWORD: process.env.DB_PWD,
   DB: 'Luby',
   dialect: 'mysql',
 
