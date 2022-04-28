@@ -17,9 +17,13 @@ server.use(express.urlencoded({ extended: true }));
 
 const employeeRouter = require('./routes/employeeRouter');
 const vehicleRouter = require('./routes/vehicleRouter');
+const reservationRouter = require('./routes/reservationRouter');
+const salesRouter = require('./routes/salesRouter');
 
 server.use('/api/employees', employeeRouter);
 server.use('/api/vehicles', vehicleRouter);
+server.use('/api/reservations', reservationRouter);
+server.use('/api/sales', salesRouter);
 
 try {
   server.listen(
