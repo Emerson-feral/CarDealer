@@ -20,11 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     avatar: {
       type: DataTypes.STRING
     },
-    bio: {
+    biografia: {
       type: DataTypes.TEXT
     },
     senha: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     }
   }, {
