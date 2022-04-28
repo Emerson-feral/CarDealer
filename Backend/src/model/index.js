@@ -32,6 +32,8 @@ db.sequelize = sequelize;
 
 db.employees = require('./employeeModel')(sequelize, DataTypes);
 db.vehicle = require('./vehicleModel')(sequelize, DataTypes);
+db.reservation = require('./reservationModel')(sequelize, DataTypes);
+db.sales = require('./salesModel')(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
   .then(() => {
